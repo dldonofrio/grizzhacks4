@@ -11,13 +11,13 @@ var bodyParser = require("body-parser");
 
 var mongoose = require("mongoose");
 
-mongoose.connect("");
+mongoose.connect("mongodb://admin:test123@ds213832.mlab.com:13832/grizzhacks4");
 
 app.set("view engine", 'ejs');
 
 
 
 // port listening stuff
-app.listen(8000, function() {
+app.listen(8080, function() {
     console.log("GOd is dead, and we have killed him");
 });

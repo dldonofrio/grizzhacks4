@@ -1,8 +1,8 @@
 //COnnect to database
-var mongooose = require('mongoose');
+var mongoose = require('mongoose');
 
 // data structure to hold the bets made
-var betSchema = new mongoose.schema({
+var betSchema = new mongoose.Schema({
     article: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "articleSchema"

@@ -12,7 +12,7 @@ router.post("/", function(req, res){
 	    amountBet: Number,
 	    betStatus: Boolean,
 	    intLean: Number,
-	    user: 
+	    user: Number,
 	}
 	
 	Bet.create(newBet, function(err, bet){
@@ -25,3 +25,5 @@ router.post("/", function(req, res){
 
 	res.redirect("/article");
 });
+
+module.exports = router;

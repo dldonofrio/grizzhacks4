@@ -8,7 +8,7 @@ var Bet = require("../models/bet");
 router.post("/", function(req, res){
 
 	var newBet = {
-	    article: ,
+	    article: String,
 	    amountBet: Number,
 	    betStatus: Boolean,
 	    intLean: Number,

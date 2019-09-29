@@ -42,7 +42,14 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// trying to pass in user on all pages
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    console.log(res.locals.currentUser);
+    next();
+ });
 
+// Routes
 app.use("/", indexRoutes);
 app.use("/user", userRoutes);
 app.use("/articles", articleRoutes);

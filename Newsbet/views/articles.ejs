@@ -1,3 +1,5 @@
+<% include ../partials/header %>
+
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -108,7 +110,7 @@
 	<body oncontextmenu="return false">
 		<% artIndex = Math.floor(Math.random() * 15); %>
 			<% console.log(articles[artIndex]) %>
-		<div class="profile"><a href="Profile.html">Your Profile</a></div>
+		<div class="profile"><a href="user/<%- currentUser._id %>">Your Profile</a></div>
 			<div class="header">
 			<%= articles[artIndex].body %> 
 				<br>

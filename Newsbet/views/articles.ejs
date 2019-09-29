@@ -110,7 +110,10 @@
 	<body oncontextmenu="return false">
 		<% artIndex = Math.floor(Math.random() * 15); %>
 			<% console.log(articles[artIndex]) %>
-		<div class="profile"><a href="user/<%- currentUser._id %>">Your Profile</a></div>
+		<div class="profile">
+			<a href="user/<%- currentUser._id %>">Your Profile</a>
+			<br> <p>Your balance is: <%- currentUser.balance %></p> 
+		</div>
 			<div class="header">
 			<%= articles[artIndex].body %> 
 				<br>
@@ -118,8 +121,8 @@
 			<br>
 			
 			<div class="bottom-div">
-				<form name="selection">
-					<input type="number" placeholder = "Gimme your money." name="moola" min="1" max="5" class="number-input"><br>
+				<form name="selection" action="/user/<%- currentUser._id ->" Method="POST">
+					<input type="number" placeholder = "$10.00" name="betInput" min="1" max="5" class="number-input"><br>
 					<input type="button" onclick="compare(0)" value="Far Left" class="bottom-button">
 					<input type="button" onclick="compare(1)" value="Left" class="bottom-button">
 					<input type="button" onclick="compare(2)" value="Center" class="bottom-button">

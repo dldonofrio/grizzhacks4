@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var request = require("request");
 var Article    = require("../models/article");
+var User	= require("../models/user")
 
 router.get("/", function(req, res){
 
@@ -37,6 +38,7 @@ router.get("/", function(req, res){
 	// 	}
 	// });
 
+	// Serves the article to the frontend
 	Article.find({}, function(err, articles){
 		if(err){
 			console.log(err);
@@ -44,8 +46,10 @@ router.get("/", function(req, res){
 			console.log("rendering articles.ejs")
 			res.render("articles", {articles: articles});
 		}
-	})
+	});
 	
-})
+`	Article.get()`
+
+});
 
 module.exports = router;

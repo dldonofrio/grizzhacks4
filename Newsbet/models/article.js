@@ -4,7 +4,7 @@ var articleSchema = new mongoose.Schema({
 	title: String,
 	url: String,
 	body: String,
-	siteName: String,
+	source: String,
 	lean: Number,
 });
 

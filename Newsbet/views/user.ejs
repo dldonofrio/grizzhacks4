@@ -1,9 +1,71 @@
 <html>
 	<head>
+		<meta charset="UTF-8">
+		<title>Login</title>
+		<style>
+			@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+			@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+			body {
+				position: fixed;
+				overflow-y: scroll;
+				width: 100%;
+				top: 40%;
+				right: 50%;
+				bottom: 50%;
+				width: auto;
+				height: auto;
+				background: url(https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252__340.jpg);
+				background-size: 100vw 100vh;
+			}
+
+			.circle {
+				border-color: black;
+    			border-width: 10px;
+    			border-style: solid;
+    			border-radius: 50%;
+    			width: 300px;
+			}
+
+			
+		</style>
 	</head>
 
-	<body>
-		<h1>Welcome to your profile</h1>
+	<body oncontextmenu="return false">
+		<img class="circle" src="https://i.kym-cdn.com/entries/icons/mobile/000/018/259/55181940.jpg">
+		<table>
+		<tr>
+			<th>Category</th>
+			<th>Answer</th>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td><%= user.username %></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><%= user.password %></td>
+		</tr>
+		<tr>
+			<td>Balance</td>
+			<td>$0.00</td>
+		</tr>
+		<tr>
+			<td>Total Wins</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td>Total Losses</td>
+			<td>69</td>
+		</tr>
+		<tr>
+			<td>Amount Won</td>
+			<td>$0.00</td>
+		</tr>
+		<tr>
+			<td>Amount Lost</td>
+			<td>$420.00</td>
+		</tr>
+	</table>
 	</body>
-
 </html>

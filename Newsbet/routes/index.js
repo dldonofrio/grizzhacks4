@@ -23,7 +23,7 @@ router.get("/register", function(req, res){
 });
 // handle sign up logic
 router.post("/register", function(req, res){
-	var newUser = new User({username: req.body.username, password: req.body.password});
+	var newUser = new User({username: req.body.username, password: req.body.password, balance: 10});
 	console.log(newUser);
 	// if (req.body.adminCode === 'mySuperSecretAdminCode') {
 	// newUser.isAdmin = true;

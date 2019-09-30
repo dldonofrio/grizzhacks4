@@ -50,7 +50,12 @@
 				left: 50%;
 				padding: 10px;
 			}
-
+			.myRange {
+				display: none;
+			}
+			.articleScore {
+				display: none;
+			}
 			.text-input {
 				width: 250px;
 				height: 30px;
@@ -68,7 +73,7 @@
 				height: 30px;
 				border: 1px solid rgba(255,255,255,0.6);
 				border-radius: 2px;
-				color: #fff;
+				color: black;
 				font-family: 'Exo', sans-serif;
 				font-size: 16px;
 				font-weight: 400;
@@ -121,25 +126,29 @@
 			<br>
 			
 			<div class="bottom-div">
-				<form name="selection" action="/user/<%- currentUser._id ->" Method="POST">
+				<form id="my_form" name="selection" action="/user/<%- currentUser._id %>" Method="POST">
+
+					<input type="hidden" name="currentUser" display="hidden" value="<%- currentUser._id %>">
+
+					<input type="hidden" name="articleScore" display="hidden" value="<%= articles[artIndex].lean %>">
+
 					<input type="number" placeholder = "$10.00" name="betInput" min="1" max="5" class="number-input"><br>
-					<input type="button" onclick="compare(0)" value="Far Left" class="bottom-button">
+
+					<input type="range" id="myRange" name="myRange" max="4">
+
+					<!-- <input type="button" onclick="compare(0)" value="Far Left" class="bottom-button">
 					<input type="button" onclick="compare(1)" value="Left" class="bottom-button">
 					<input type="button" onclick="compare(2)" value="Center" class="bottom-button">
 					<input type="button" onclick="compare(3)" value="Right" class="bottom-button">
-					<input type="button" onclick="compare(4)" value="Far Right" class="bottom-button">
+					<input type="button" onclick="compare(4)" value="Far Right" class="bottom-button"> -->
+					<button id="my_button">Place Bet</button>	
 				</form>
-				<div class="reveal" display: hidden>
-					<%= articles[artIndex].title %>
-					<%= articles[artIndex].source %>
-			</div>
+				<div id="div_reveal" display: hidden>
+					<h2><%= articles[artIndex].title %></h2>
+					<h2><%= articles[artIndex].source %></h2>
+				</div>
 
 			<script language="javascript">
-				
-				function create(form) {
-					window.open('https://ih1.redbubble.net/image.202004662.5837/flat,800x800,070,f.u6.jpg')
-				}
-
 				function compare(guess) {
 					if(guess == <%= articles[artIndex].lean %>) {
 						console.log("Correct!");
@@ -147,6 +156,28 @@
 						console.log("Incorrect!");
 					}
 				}
+
+
+				var form = document.getElementById("my_form"), button = document.getElementById("my_button");
+				my_form.onsubmit = function() {
+				    return false;
+				}
+
+				button.onclick = function() {
+
+				document.getElementById("div_reveal").style.display = "block";
+
+				setTimeout(function() {
+				    form.submit();
+				}, 7000);
+				   return false;
+				}
+								
+				function create(form) {
+					window.open('https://ih1.redbubble.net/image.202004662.5837/flat,800x800,070,f.u6.jpg')
+				}
+
+				
 			</script>
 	</body>
 </html>
